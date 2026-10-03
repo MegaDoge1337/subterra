@@ -1,0 +1,73 @@
+{
+	"categories": [
+		{
+			"uuid": "3962e535-1d98-4a97-b5a3-76fca9138201",
+			"title": "Active",
+			"color": "569eff"
+		},
+		{
+			"uuid": "4e58d360-12f5-429f-8103-151a38055a69",
+			"title": "In progress",
+			"color": "ffc500"
+		},
+		{
+			"uuid": "285c2058-cc8d-4133-a2f5-c59e89aed0a6",
+			"title": "Done",
+			"color": "1aeb27"
+		},
+		{
+			"uuid": "7ee3f4e8-ea8c-4a00-b9f1-c24eaf4e2b3f",
+			"title": "Rejected",
+			"color": "f3330e"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "29679f6b-48c4-4773-9f20-5334ed5a423b",
+			"title": "Backlog",
+			"tasks": []
+		},
+		{
+			"uuid": "4d90a84d-3d58-4e0f-b991-88beea3fc682",
+			"title": "In progress",
+			"tasks": []
+		},
+		{
+			"uuid": "83475203-4e3a-4310-ab91-c407a42492f2",
+			"title": "Done",
+			"tasks": [
+				"f171100f-e61b-4cef-8cad-54d1bad1be14"
+			]
+		},
+		{
+			"uuid": "a207f8a4-d9ce-4a3e-a1d4-6a86031e45e0",
+			"title": "Rejected",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "f171100f-e61b-4cef-8cad-54d1bad1be14",
+			"title": "Контроллер персонажа",
+			"description": "Интегрировать контроллер от Brakeys (https://github.com/Brackeys/brackeys-proto-controller)",
+			"category": "285c2058-cc8d-4133-a2f5-c59e89aed0a6",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"29679f6b-48c4-4773-9f20-5334ed5a423b"
+			],
+			[
+				"4d90a84d-3d58-4e0f-b991-88beea3fc682"
+			],
+			[
+				"83475203-4e3a-4310-ab91-c407a42492f2"
+			],
+			[
+				"a207f8a4-d9ce-4a3e-a1d4-6a86031e45e0"
+			]
+		]
+	}
+}

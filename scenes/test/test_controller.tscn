@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cxv1ni8ui278b"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_46rrk"]
+[ext_resource type="Texture2D" uid="uid://ct6qjc5pkc07l" path="res://assets/kenney_prototype-textures/dark/texture_04.png" id="2_7w04g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pxv4"]
+
+[sub_resource type="Sky" id="Sky_bl34e"]
+sky_material = SubResource("ProceduralSkyMaterial_3pxv4")
+
+[sub_resource type="Environment" id="Environment_sypch"]
+background_mode = 2
+sky = SubResource("Sky_bl34e")
+ssao_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sypch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apn8r"]
+albedo_texture = ExtResource("2_7w04g")
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl34e"]
+size = Vector3(1.9941711, 0.001, 1.9960938)
+
+[node name="TestController" type="Node3D" unique_id=1589411311]
+
+[node name="ProtoController" parent="." unique_id=445991392 instance=ExtResource("1_46rrk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5386579, 0)
+can_sprint = true
+can_freefly = true
+input_left = "move_left"
+input_right = "move_right"
+input_forward = "move_forward"
+input_back = "move_backward"
+input_jump = "jump"
+input_freefly = "noclip"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1291277471]
+environment = SubResource("Environment_sypch")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1141327749]
+transform = Transform3D(1, 0, 0, 0, 0.71180123, 0.70238096, 0, -0.70238096, 0.71180123, 0, 0, 0)
+
+[node name="Plate" type="Node3D" parent="." unique_id=922912635]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plate" unique_id=1260953173]
+mesh = SubResource("PlaneMesh_sypch")
+surface_material_override/0 = SubResource("StandardMaterial3D_apn8r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plate" unique_id=1713056686]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plate/StaticBody3D" unique_id=1383432583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00093078613, 0.0019414164, 0)
+shape = SubResource("BoxShape3D_bl34e")
