@@ -5,34 +5,29 @@
 [node name="InteractComponent" type="Node3D" unique_id=707152985]
 script = ExtResource("1_pab14")
 
-[node name="Crosshair" type="Label" parent="." unique_id=1938387739]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1615668660]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -27.0
+offset_top = -25.0
+offset_right = 27.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Crosshair" type="Label" parent="VBoxContainer" unique_id=1938387739]
+layout_mode = 2
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tooltip" type="Label" parent="." unique_id=777471649]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -27.0
-offset_top = -23.0
-offset_right = 27.0
-grow_horizontal = 2
-grow_vertical = 0
-offset_transform_enabled = true
+[node name="Tooltip" type="Label" parent="VBoxContainer" unique_id=777471649]
+layout_mode = 2
 offset_transform_position = Vector2(0, -30)
 text = "Tooltip"
 horizontal_alignment = 1

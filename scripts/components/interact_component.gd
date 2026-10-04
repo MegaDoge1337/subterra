@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var raycast: RayCast3D = $RayCast
-@onready var tooltip: Label = $Tooltip
+@onready var tooltip: Label = $VBoxContainer/Tooltip
 
 
 func _process(delta: float) -> void:
