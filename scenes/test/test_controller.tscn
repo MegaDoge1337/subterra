@@ -34,7 +34,7 @@ can_freefly = true
 input_left = "move_left"
 input_right = "move_right"
 input_forward = "move_forward"
-input_back = "move_backward"
+input_back = "move_back"
 input_jump = "jump"
 input_freefly = "noclip"
 

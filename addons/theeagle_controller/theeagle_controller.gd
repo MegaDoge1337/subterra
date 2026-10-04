@@ -9,6 +9,8 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = %PlayerCameraPivot;
 
+var freeflying : bool = false
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 	
@@ -45,3 +47,11 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * move_speed;
 	
 	move_and_slide();
+
+func disable_freefly() -> void:
+	printerr("Method `disable_freefly` not implemented for %s" % name)
+	pass
+	
+func enable_freefly() -> void:
+	printerr("Method `enable_freefly` not implemented for %s" % name)
+	pass

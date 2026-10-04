@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cq8ah1syvwii"]
 
 [ext_resource type="Material" uid="uid://l3p1mkkttexx" path="res://textures/gray_grid.tres" id="1_hw3r6"]
-[ext_resource type="PackedScene" uid="uid://dwyjaofb54n87" path="res://player/player.tscn" id="2_ae16m"]
+[ext_resource type="PackedScene" uid="uid://dwyjaofb54n87" path="res://addons/theeagle_controller/theeagle_controller.tscn" id="2_ae16m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hw3r6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -59,5 +59,5 @@ use_collision = true
 size = Vector3(15, 2, 15)
 material = ExtResource("1_hw3r6")
 
-[node name="Player" parent="." unique_id=1050139707 instance=ExtResource("2_ae16m")]
+[node name="TheEagleController" parent="." unique_id=1050139707 instance=ExtResource("2_ae16m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dwyjaofb54n87"]
 
-[ext_resource type="Script" uid="uid://ddjo14bvbynys" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://ddjo14bvbynys" path="res://addons/theeagle_controller/theeagle_controller.gd" id="1_oul6g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1b12e"]
 radius = 0.3
 height = 1.8
 
-[node name="Player" type="CharacterBody3D" unique_id=1050139707]
+[node name="TheEagleController" type="CharacterBody3D" unique_id=1050139707]
 collision_layer = 2
 script = ExtResource("1_oul6g")
 mouse_sensitivity = 0.23
