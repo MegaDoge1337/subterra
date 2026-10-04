@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://jiw02767tiod"]
+
+[ext_resource type="Script" uid="uid://p5m8s0tgq5dv" path="res://scripts/components/interact_component.gd" id="1_pab14"]
+
+[node name="InteractComponent" type="Node3D" unique_id=707152985]
+script = ExtResource("1_pab14")
+
+[node name="Crosshair" type="Label" parent="." unique_id=1938387739]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tooltip" type="Label" parent="." unique_id=777471649]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -23.0
+offset_right = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -30)
+text = "Tooltip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RayCast" type="RayCast3D" parent="." unique_id=586724294]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.03483796, 0)
+target_position = Vector3(0, -5, 0)
+collision_mask = 2
