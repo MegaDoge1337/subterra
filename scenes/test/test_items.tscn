@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ct6qjc5pkc07l" path="res://assets/kenney_prototype-textures/dark/texture_04.png" id="2_rm2cs"]
 [ext_resource type="PackedScene" uid="uid://bjhoc0ea2le4j" path="res://scenes/items/fuel_can.tscn" id="3_rm2cs"]
 [ext_resource type="PackedScene" uid="uid://b25r00pl71qp" path="res://scenes/items/wrench.tscn" id="4_mjwnt"]
+[ext_resource type="PackedScene" uid="uid://m6n31ky0tsfp" path="res://scenes/items/screwdriver.tscn" id="5_lxjgd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pxv4"]
 
@@ -64,10 +65,17 @@ shape = SubResource("BoxShape3D_bl34e")
 
 [node name="FuelCan" parent="Items" unique_id=1844598026 instance=ExtResource("3_rm2cs")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.809496, 0.21382874, 0)
-title = "Fuel Can"
-type = 2
+has_capacity = true
+bar_title = "Fuel"
+current_value = 30
 
 [node name="Wrench" parent="Items" unique_id=1586941580 instance=ExtResource("4_mjwnt")]
 transform = Transform3D(3, 0, 0, 0, 3.0000002, 0, 0, 0, 3.0000002, -1.928923, 0.59228325, 0)
-title = "Wrench"
-type = 1
+
+[node name="Screwdriver" parent="Items" unique_id=1829814294 instance=ExtResource("5_lxjgd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.3209519, 0.53300405, -0.14036012)
+has_capacity = true
+bar_title = "Energy"
+max_value = 3000
+current_value = 1500
+step = 10

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dqalsv1ihhyb5"]
+
+[ext_resource type="Script" uid="uid://cf63n8ypqsfcf" path="res://scripts/components/hands_component.gd" id="1_a3aaj"]
+
+[node name="HandsComponent" type="Node3D" unique_id=321704417]
+script = ExtResource("1_a3aaj")
+
+[node name="WrenchMarker" type="Marker3D" parent="." unique_id=2016033421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467, -0.705, -0.601)
+
+[node name="FuelCanMarker" type="Marker3D" parent="." unique_id=1563379428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655, -1.069, -0.485)
+
+[node name="ScrewdriverMarker" type="Marker3D" parent="." unique_id=1640169049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.595, -0.685, -0.682)

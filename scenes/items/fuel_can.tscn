@@ -54,8 +54,8 @@ size = Vector3(0.65283203, 2.4039612, 1.9568176)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_0kc23")
-item_name = "Fuel Can"
-item_type = 1
+title = "Fuel Can"
+type = 2
 
 [node name="FuelCanMesh" type="MeshInstance3D" parent="." unique_id=2037791016]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0.42177176, 0.5667951, 0)

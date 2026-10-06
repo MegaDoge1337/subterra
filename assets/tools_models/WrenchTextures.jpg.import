@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1o7vqtsdwtc3"
-path.s3tc="res://.godot/imported/Tex_Drill_1.png-dd22172a693585d997e87657392ebb34.s3tc.ctex"
+uid="uid://1gnxnbvob78a"
+path.s3tc="res://.godot/imported/WrenchTextures.jpg-f83a7057f4e3ac9072859ecb85d5f0fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/tools_models/Tex_Drill_1.png"
-dest_files=["res://.godot/imported/Tex_Drill_1.png-dd22172a693585d997e87657392ebb34.s3tc.ctex"]
+source_file="res://assets/tools_models/WrenchTextures.jpg"
+dest_files=["res://.godot/imported/WrenchTextures.jpg-f83a7057f4e3ac9072859ecb85d5f0fc.s3tc.ctex"]
 
 [params]
 

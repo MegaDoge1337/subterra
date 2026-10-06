@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	else:
 		tooltip.text = ""
 
+
 func get_interact_item() -> Item:
 	if raycast.is_colliding():
 		return raycast.get_collider()

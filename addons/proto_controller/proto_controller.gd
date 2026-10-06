@@ -60,6 +60,7 @@ var freeflying : bool = false
 ## Components
 @onready var interact_component: Node3D = $Head/InteractComponent
 @onready var hands_component: Node3D = $Head/HandsComponent
+@onready var interface_component: Node3D = $Head/InterfaceComponent
 
 func _ready() -> void:
 	check_input_mappings()
@@ -70,10 +71,22 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Pick up
 	if can_interact and Input.is_action_just_pressed("interact"):
 		if !hands_component.picked_item:
-			var item = interact_component.get_interact_item()
+			var item: Item = interact_component.get_interact_item()
 			hands_component.pick_up_item(item)
+			if item:
+				interface_component.item_title.text = item.title
+				interface_component.item_title.show()
+				if item.has_capacity:
+					interface_component.capacity_title.text = item.bar_title
+					interface_component.capacity_title.show()
+					interface_component.capacity_bar.max_value = item.max_value
+					interface_component.capacity_bar.value = item.current_value
+					interface_component.capacity_bar.step = item.step
+					interface_component.capacity_bar.show()
+				interface_component.bottom_panel.show()
 		else:
 			hands_component.drop_item()
+			interface_component.hide_all_and_reset()
 	
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
