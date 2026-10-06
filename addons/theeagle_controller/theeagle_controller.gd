@@ -6,8 +6,12 @@ extends CharacterBody3D
 @export var default_move_speed: float = 4.0; # м/с
 # Высота прыжка считается по формуле h = v² / (2·g): обратная формула: v = sqrt(2·g·h)
 @export var jump_velocity: float = 4.5; # м/с
-
 @export var freefly_speed: float = 10.0  # м/с
+@export var sprint_speed: float = 7.0;
+
+@export_group("camera_effects")
+@export var fov_change_speed : float = 50.0;
+@export var fov_sprint_increase : float = 5.0;
 
 @export_group("crouch")
 @export var crouch_character_height : float = 1.0;
@@ -18,13 +22,18 @@ extends CharacterBody3D
 @onready var camera_pivot: Node3D = %PlayerCameraPivot;
 @onready var collider: CollisionShape3D = %PlayerCollider;
 @onready var capsule: CapsuleShape3D = collider.shape as CapsuleShape3D
+@onready var default_camera_fov : float = camera.fov;
 
 var freeflying : bool = false;
-var is_crouching := false;
+var is_crouching : bool = false;
+var is_sprinting : bool = false;
 
 func get_current_move_speed() -> float:
 	if (is_crouching and is_on_floor()):
 		return crouch_move_speed;
+	
+	if is_sprinting:
+		return sprint_speed;
 	return default_move_speed;
 
 func get_camera_target_height() -> float:
@@ -63,10 +72,26 @@ func handle_freefly(delta : float) -> void:
 	var move_dir : Vector3 = camera.global_basis * Vector3(input_dir.x, 0, input_dir.y);
 	move_dir += Vector3.UP * Input.get_axis("crouch", "jump");
 	move_dir = move_dir.normalized();
-	global_position += move_dir * freefly_speed * delta;
+	global_position += move_dir * (freefly_speed * 3 if Input.is_action_pressed("sprint") else freefly_speed) * delta;
 
 func get_input_dir() -> Vector2:
 	return Input.get_vector("move_left", "move_right", "move_forward", "move_back");
+
+func update_sprint_state() -> void:
+	if not is_on_floor():
+		return;
+	
+	if is_crouching:
+		is_sprinting = false;
+		return;
+		
+	is_sprinting = Input.is_action_pressed("sprint") and get_input_dir().y < 0;
+
+func handle_camera_effects(delta : float) -> void:
+	if is_sprinting:
+		camera.fov = move_toward(camera.fov, default_camera_fov + fov_sprint_increase, fov_change_speed * delta);
+		return;
+	camera.fov = move_toward(camera.fov, default_camera_fov, fov_change_speed * delta);
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
@@ -102,23 +127,24 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity;
 	
+	
 	#crouching
 	var crouch_pressed : bool = Input.is_action_pressed("crouch");
-	
 	if (crouch_pressed and not is_crouching):
 		crouch();
 	elif (not crouch_pressed and is_crouching and can_uncrouch()):
 		uncrouch();
-	
 	var camera_target_height : float = get_camera_target_height();
 	camera_pivot.position.y = move_toward(camera_pivot.position.y, camera_target_height, camera_crouch_speed * delta);
+	
+	update_sprint_state();
 	
 	var input_dir: Vector2 = get_input_dir();
 	var move_dir: Vector3 = transform.basis * Vector3(input_dir.x, 0, input_dir.y);
 	var move_speed: float = get_current_move_speed();
 	velocity.x = move_dir.x * move_speed;
 	velocity.z = move_dir.z * move_speed;
-	
+	handle_camera_effects(delta);
 	move_and_slide();
 
 func disable_freefly() -> void:
