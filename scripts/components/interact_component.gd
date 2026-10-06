@@ -7,11 +7,12 @@ extends Node3D
 func _process(delta: float) -> void:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if !collider:
-			tooltip.text = ""
-			return
-		
 		if collider is Item:
-			tooltip.text = collider.get_item_name()
+			tooltip.text = collider.title
 	else:
 		tooltip.text = ""
+
+func get_interact_item() -> Item:
+	if raycast.is_colliding():
+		return raycast.get_collider()
+	return null

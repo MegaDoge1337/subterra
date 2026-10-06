@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var can_sprint : bool = false
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = false
+## Can we press to interact?
+@export var can_interact : bool = false
 
 @export_group("Speeds")
 ## Look around rotation speed.
@@ -43,6 +45,8 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to interact with objects.
+@export var input_interact : String = "interact"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -53,12 +57,24 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 
+## Components
+@onready var interact_component: Node3D = $Head/InteractComponent
+@onready var hands_component: Node3D = $Head/HandsComponent
+
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Pick up
+	if can_interact and Input.is_action_just_pressed("interact"):
+		if !hands_component.picked_item:
+			var item = interact_component.get_interact_item()
+			hands_component.pick_up_item(item)
+		else:
+			hands_component.drop_item()
+	
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture_mouse()
@@ -176,3 +192,6 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+	if can_interact and not InputMap.has_action(input_interact):
+		push_error("Interact disabled. No InputAction found for input_interact: " + input_interact)
+		can_interact = false

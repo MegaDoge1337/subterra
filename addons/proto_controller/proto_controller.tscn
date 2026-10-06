@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bb3l7h378vvbt" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://jiw02767tiod" path="res://scenes/components/interact_component.tscn" id="2_wr06p"]
+[ext_resource type="Script" uid="uid://cf63n8ypqsfcf" path="res://scripts/components/hands_component.gd" id="3_0rk7u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -15,6 +16,7 @@ radius = 0.4
 height = 1.8
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1803670247]
+collision_layer = 2
 script = ExtResource("1_ucva2")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=817144753]
@@ -33,3 +35,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=516477073]
 
 [node name="InteractComponent" parent="Head" unique_id=707152985 instance=ExtResource("2_wr06p")]
+
+[node name="HandsComponent" type="Node3D" parent="Head" unique_id=515534781]
+script = ExtResource("3_0rk7u")
+
+[node name="WrenchMarker" type="Marker3D" parent="Head/HandsComponent" unique_id=2081287704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467, -0.705, -0.601)
+
+[node name="FuelCanMarker" type="Marker3D" parent="Head/HandsComponent" unique_id=1704952563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655, -1.069, -0.485)

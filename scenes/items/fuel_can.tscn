@@ -50,12 +50,12 @@ albedo_texture = ExtResource("1_h47sa")
 [sub_resource type="BoxShape3D" id="BoxShape3D_sypch"]
 size = Vector3(0.65283203, 2.4039612, 1.9568176)
 
-[node name="FuelCan" type="RigidBody3D" unique_id=1844598026]
+[node name="FuelCan" type="RigidBody3D" unique_id=1829814294]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
-mass = 10.0
 script = ExtResource("1_0kc23")
 item_name = "Fuel Can"
+item_type = 1
 
 [node name="FuelCanMesh" type="MeshInstance3D" parent="." unique_id=2037791016]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0.42177176, 0.5667951, 0)

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="subterra"
+run/main_scene="uid://bmdsxwgll1v1o"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,7 @@ config/icon="res://icon.svg"
 
 Console="*uid://ouiu5xh1cs8n"
 ConsoleCommands="*uid://ciygxqtk7qxgg"
+ItemsData="*uid://can5i3cwyh8tg"
 
 [display]
 
