@@ -10,7 +10,6 @@ height = 1.8
 [node name="TheEagleController" type="CharacterBody3D" unique_id=1050139707]
 collision_layer = 2
 script = ExtResource("1_oul6g")
-mouse_sensitivity = 0.23
 
 [node name="PlayerCollider" type="CollisionShape3D" parent="." unique_id=868520212]
 unique_name_in_owner = true
