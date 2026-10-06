@@ -115,6 +115,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_pivot.rotation.x = clampf(pitch, deg_to_rad(-89.999), deg_to_rad(89.999));
 		return
 
+func _process(delta: float) -> void:
+	camera.global_position = camera_pivot.get_global_transform_interpolated().origin;
+	camera.global_basis = camera_pivot.global_basis;
+	handle_camera_effects(delta);
+
 func _physics_process(delta: float) -> void:
 	if freeflying:
 		handle_freefly(delta);
@@ -144,7 +149,6 @@ func _physics_process(delta: float) -> void:
 	var move_speed: float = get_current_move_speed();
 	velocity.x = move_dir.x * move_speed;
 	velocity.z = move_dir.z * move_speed;
-	handle_camera_effects(delta);
 	move_and_slide();
 
 func disable_freefly() -> void:
