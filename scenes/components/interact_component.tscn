@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://jiw02767tiod"]
 
 [ext_resource type="Script" uid="uid://p5m8s0tgq5dv" path="res://scripts/components/interact_component.gd" id="1_pab14"]
+[ext_resource type="FontFile" uid="uid://dchv862pxvbic" path="res://assets/fonts/PublicPixel.ttf" id="2_8tuxh"]
 
 [node name="InteractComponent" type="Node3D" unique_id=707152985]
 script = ExtResource("1_pab14")
@@ -22,6 +23,7 @@ size_flags_vertical = 4
 
 [node name="Crosshair" type="Label" parent="VBoxContainer" unique_id=1938387739]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8tuxh")
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -29,6 +31,9 @@ vertical_alignment = 1
 [node name="Tooltip" type="Label" parent="VBoxContainer" unique_id=777471649]
 layout_mode = 2
 offset_transform_position = Vector2(0, -30)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_8tuxh")
 text = "Tooltip"
 horizontal_alignment = 1
 vertical_alignment = 1

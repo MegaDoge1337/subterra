@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bb3l7h378vvbt" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://ubpmsykiwi8f" path="res://scripts/components/interface_component.gd" id="2_6dqce"]
 [ext_resource type="PackedScene" uid="uid://jiw02767tiod" path="res://scenes/components/interact_component.tscn" id="2_wr06p"]
+[ext_resource type="FontFile" uid="uid://dchv862pxvbic" path="res://assets/fonts/PublicPixel.ttf" id="3_0rk7u"]
 [ext_resource type="PackedScene" uid="uid://dqalsv1ihhyb5" path="res://scenes/components/hands_component.tscn" id="3_5hfox"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -40,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
 script = ExtResource("2_6dqce")
 
 [node name="Panel" type="Panel" parent="Head/InterfaceComponent" unique_id=1308783645]
+self_modulate = Color(0.5529412, 0.5529412, 0.5529412, 0)
 custom_minimum_size = Vector2(0, 80)
 anchors_preset = 12
 anchor_top = 1.0
@@ -66,6 +68,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 offset_transform_enabled = true
 offset_transform_position = Vector2(30, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0rk7u")
 text = "Item title"
 
 [node name="CapacityTitle" type="Label" parent="Head/InterfaceComponent/Panel/HBoxContainer" unique_id=1334335853]
@@ -73,6 +77,9 @@ layout_mode = 2
 size_flags_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-45, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0rk7u")
 text = "Progress title:"
 
 [node name="CapacityBar" type="ProgressBar" parent="Head/InterfaceComponent/Panel/HBoxContainer" unique_id=1021267522]
@@ -80,6 +87,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 offset_transform_enabled = true
 offset_transform_position = Vector2(-30, 0)
+theme_override_fonts/font = ExtResource("3_0rk7u")
 step = 1.0
 
 [node name="InteractComponent" parent="Head" unique_id=707152985 instance=ExtResource("2_wr06p")]
