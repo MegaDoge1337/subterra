@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export_range(0.01, 1.0, 0.01) var mouse_sensitivity: float = 0.15;  # градусы на пиксель
+@export_range(0.001, 1.0, 0.001) var mouse_sensitivity: float = 0.033;  # градусы на пиксель
 
 @export var default_character_height : float = 1.8;
 @export var default_move_speed: float = 4.0; # м/с
