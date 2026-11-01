@@ -1,0 +1,65 @@
+[gd_scene format=4 uid="uid://ck0ae5oifbxbp"]
+
+[ext_resource type="Texture2D" uid="uid://cx4p5ttgixa45" path="res://assets/tools_models/ps1_notebook.png" id="1_3k7mx"]
+[ext_resource type="Script" uid="uid://ddnhcrj70fuqm" path="res://scripts/items/item.gd" id="1_k3vm4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnu7c"]
+resource_name = "Material"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vmyig"]
+_surfaces = [{
+"aabb": AABB(-0.07547706, -0.04215241, -0.0035385776, 0.15095413, 0.08430482, 0.0033681968),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAgAEAAAAAwAFAAEAAgABAAUABgADAAAAAAAEAAYABQADAAYABAACAAcABQAHAAIABwAGAAQABgAHAAUA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("uJOavQGoLL06qDK5uJOavQGoLD06qDK5uJOaPQGoLD06qDK5uJOavQGoLL1752e7uJOaPQGoLL06qDK5uJOavQGoLD1752e7uJOaPQGoLL1752e7uJOaPQGoLD1752e7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ct5cn"]
+resource_name = "Cube"
+_surfaces = [{
+"aabb": AABB(-0.07547706, -0.04215241, -0.0035385776, 0.15095413, 0.08430482, 0.0033681968),
+"attribute_data": PackedByteArray("L/jDOwDjiTv0gh48mIzaPiLu0j5qc9o+6AnRPgDEyztBfN8+atLjPkF83z4ArBQ6wMoBPwCsFDrAygE/atLjPnxqdTyMkl0/fGp1PIpd5D5fmE09il3kPl+YTT2Mkl0/+6HSPjJr5T6dH9M+tt1dP1QSGjxA814/MPXxOyyd4j6KkeA+atLjPoqR4D4AuGc6GVABPwC4Zzq/0gE/atLjPmdRAT8AzHM6qeMAP2rS4z6Ikt4+atLjPndC3z4ACLg5"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_qnu7c"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("uJOavQGoLL06qDK5uJOavQGoLD06qDK5uJOaPQGoLD06qDK5uJOaPQGoLL06qDK5uJOavQGoLL06qDK5uJOaPQGoLL06qDK5uJOaPQGoLL1752e7uJOavQGoLL1752e7uJOavQGoLD06qDK5uJOavQGoLL06qDK5uJOavQGoLL1752e7uJOavQGoLD1752e7uJOaPQGoLL1752e7uJOaPQGoLD1752e7uJOavQGoLD1752e7uJOavQGoLL1752e7uJOaPQGoLL06qDK5uJOaPQGoLD06qDK5uJOaPQGoLD1752e7uJOaPQGoLL1752e7uJOaPQGoLD06qDK5uJOavQGoLD06qDK5uJOavQGoLD1752e7uJOaPQGoLD1752e7/3//f+j/C0D/f/9/9v/7P/9//3/G/xtA/3//f6f/K0D/fwAA//////9/AAD//////38AAP//////fwAA/////wAA/3//////AAD/f/////8AAP9//////wAA/3///////////83/F8D/////Rv9bwP////+d/86//////xb/i7////9//////////3//////////f/////////9///////9////2hv+//3////9//7//f///GoD/v/9///8Oh/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vmyig")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhdo5"]
+albedo_texture = ExtResource("1_3k7mx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sypch"]
+size = Vector3(0.88793945, 1.2762604, 0.0769043)
+
+[node name="Book" type="RigidBody3D" unique_id=730075926]
+collision_layer = 2
+script = ExtResource("1_k3vm4")
+title = "Instructions Book"
+type = 4
+has_notes = true
+notes_path = "res://assets/notes_texts/lorem.txt"
+
+[node name="BookMesh" type="MeshInstance3D" parent="." unique_id=385717991]
+transform = Transform3D(-5.729, 0, 0, 0, -14.982, 0, 0, 0, -22.564, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ct5cn")
+surface_material_override/0 = SubResource("StandardMaterial3D_lhdo5")
+
+[node name="BookCollision" type="CollisionShape3D" parent="." unique_id=512084174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010986328, 0.0067367554, 0.040085137)
+shape = SubResource("BoxShape3D_sypch")
