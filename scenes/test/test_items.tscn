@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bjhoc0ea2le4j" path="res://scenes/items/fuel_can.tscn" id="3_rm2cs"]
 [ext_resource type="PackedScene" uid="uid://b25r00pl71qp" path="res://scenes/items/wrench.tscn" id="4_mjwnt"]
 [ext_resource type="PackedScene" uid="uid://m6n31ky0tsfp" path="res://scenes/items/screwdriver.tscn" id="5_lxjgd"]
+[ext_resource type="PackedScene" uid="uid://ck0ae5oifbxbp" path="res://scenes/items/book.tscn" id="6_bwdmw"]
+[ext_resource type="Texture2D" uid="uid://csid6kvfkwhkn" path="res://assets/kenney_prototype-textures/dark/texture_08.png" id="6_qpqyl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pxv4"]
 
@@ -27,6 +29,13 @@ uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bl34e"]
 size = Vector3(1.9941711, 0.001, 1.9960938)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sypch"]
+albedo_texture = ExtResource("6_qpqyl")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sypch"]
+size = Vector3(3.3164673, 1.1795654, 1.6491699)
 
 [node name="TestItems" type="Node3D" unique_id=1589411311]
 
@@ -79,3 +88,17 @@ bar_title = "Energy"
 max_value = 3000
 current_value = 1500
 step = 10
+
+[node name="Book" parent="Items" unique_id=730075926 instance=ExtResource("6_bwdmw")]
+transform = Transform3D(-0.7071067, 0.7071068, -3.821371e-15, -3.090862e-08, -3.090862e-08, -1, -0.7071068, -0.7071067, 4.371139e-08, 1.9680897, 1.9874668, -4.736513)
+
+[node name="Table" type="CSGBox3D" parent="." unique_id=2036826827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1772461, 0.565496, -4.73437)
+size = Vector3(3.3544922, 1.3116455, 1.6958008)
+material = SubResource("StandardMaterial3D_sypch")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=644456002]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=512576288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010681152, 0.089782715, 0.037231445)
+shape = SubResource("BoxShape3D_sypch")

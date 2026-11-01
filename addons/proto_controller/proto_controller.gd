@@ -52,6 +52,7 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var viewing_notes : bool = false  # Флаг для отслеживания открытой записки
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -83,15 +84,27 @@ func _unhandled_input(event: InputEvent) -> void:
 					interface_component.capacity_bar.value = item.current_value
 					interface_component.capacity_bar.step = item.step
 					interface_component.capacity_bar.show()
+				if item.has_notes:
+					viewing_notes = true
+					release_mouse()
+					interface_component.viewer_text.text = item.get_notes_text()
+					interface_component.viewer_text.show()
+					interface_component.viewer_panel.show()
+					interact_component.hide_crosshair_and_tooltip()
 				interface_component.bottom_panel.show()
 		else:
+			if viewing_notes:
+				await get_tree().create_timer(0.1).timeout
+				viewing_notes = false
+			capture_mouse()
+			interact_component.show_crosshair_and_tooltip()
 			hands_component.drop_item()
 			interface_component.hide_all_and_reset()
 	
 	# Mouse capturing
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !viewing_notes:
 		capture_mouse()
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) and !viewing_notes:
 		release_mouse()
 	
 	# Look around

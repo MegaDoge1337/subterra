@@ -90,6 +90,57 @@ offset_transform_position = Vector2(-30, 0)
 theme_override_fonts/font = ExtResource("3_0rk7u")
 step = 1.0
 
+[node name="Viewer" type="Panel" parent="Head/InterfaceComponent" unique_id=1158759300]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewerText" type="RichTextLabel" parent="Head/InterfaceComponent/Viewer" unique_id=1641098731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_0rk7u")
+theme_override_fonts/bold_font = ExtResource("3_0rk7u")
+theme_override_fonts/bold_italics_font = ExtResource("3_0rk7u")
+theme_override_fonts/italics_font = ExtResource("3_0rk7u")
+theme_override_fonts/mono_font = ExtResource("3_0rk7u")
+bbcode_enabled = true
+text = "Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text
+Viewever text"
+
 [node name="InteractComponent" parent="Head" unique_id=707152985 instance=ExtResource("2_wr06p")]
 
 [node name="HandsComponent" parent="Head" unique_id=321704417 instance=ExtResource("3_5hfox")]
